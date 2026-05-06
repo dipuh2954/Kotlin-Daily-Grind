@@ -1,35 +1,34 @@
 fun main() {
-    // Creating an immutable list of strings
-    val fruits = listOf("Apple", "Banana", "Mango", "Kiwi")
+    val tasks = mutableListOf("Buy groceries", "Study Kotlin", "Exercise")
 
-    // Accessing elements by index (starts at 0)
-    println(fruits[0])        // Apple
-    println(fruits[2])        // Mango
-    println(fruits.first())   // Apple  — same as fruits[0]
-    println(fruits.last())    // Kiwi   — last element
+    // Add elements
+    tasks.add("Read book")          // adds to the end
+    tasks.add(1, "Call mom")        // inserts at index 1
 
-    // Safe access — returns null instead of crashing
-    println(fruits.getOrNull(10))  // null (no crash!)
-    println(fruits.getOrElse(10) { "Unknown" }) // Unknown
+    // Update elements
+    tasks[0] = "Buy organic groceries"  // replaces index 0
 
-    // Common properties and functions
-    println(fruits.size)           // 4
-    println(fruits.isEmpty())      // false
-    println(fruits.isNotEmpty())   // true
-    println(fruits.contains("Mango"))  // true
-    println("Apple" in fruits)         // true  (same as contains)
+    // Remove elements
+    tasks.remove("Exercise")         // removes by VALUE
+    tasks.removeAt(0)               // removes by INDEX
+    tasks.removeLast()              // removes last element
 
-    // Iterating
-    for (fruit in fruits) {
-        println(fruit)
-    }
+    // Add all from another list
+    val more = listOf("Cook dinner", "Sleep early")
+    tasks.addAll(more)
 
-    // With index
-    for ((index, fruit) in fruits.withIndex()) {
-        println("$index → $fruit")
-    }
+    // Check contents
+    println(tasks)
+    println(tasks.size)
 
-    // THIS WILL NOT COMPILE — immutable!
-    // fruits.add("Orange")   ← compile error
-    // fruits[0] = "Peach"    ← compile error
+    // Clear everything
+    tasks.clear()
+    println(tasks.isEmpty())  // true
+
+    // Sorting a mutable list
+    val numbers = mutableListOf(5, 2, 8, 1, 9, 3)
+    numbers.sort()          // sorts IN PLACE: [1, 2, 3, 5, 8, 9]
+    numbers.sortDescending() // [9, 8, 5, 3, 2, 1]
+    numbers.shuffle()       // random order (useful for games)
+    numbers.reverse()       // reverses in place
 }
