@@ -1,34 +1,37 @@
 fun main() {
-    val tasks = mutableListOf("Buy groceries", "Study Kotlin", "Exercise")
+    // to — infix function that creates a Pair (key to value)
+    val studentScores = mapOf(
+        "Rahul" to 92,
+        "Priya" to 88,
+        "Arjun" to 75,
+        "Sneha" to 95
+    )
 
-    // Add elements
-    tasks.add("Read book")          // adds to the end
-    tasks.add(1, "Call mom")        // inserts at index 1
+    // Accessing values by key
+    println(studentScores["Rahul"])         // 92
+    println(studentScores["Unknown"])       // null (key doesn't exist)
+    println(studentScores.getValue("Priya")) // 88 — throws if key missing
+    println(studentScores.getOrDefault("X", 0)) // 0 if key not found
+    println(studentScores.getOrElse("X") { -1 })  // -1 (lambda default)
 
-    // Update elements
-    tasks[0] = "Buy organic groceries"  // replaces index 0
+    // Checking existence
+    println(studentScores.containsKey("Priya"))   // true
+    println(studentScores.containsValue(100))     // false
+    println("Rahul" in studentScores)             // true (checks keys)
 
-    // Remove elements
-    tasks.remove("Exercise")         // removes by VALUE
-    tasks.removeAt(0)               // removes by INDEX
-    tasks.removeLast()              // removes last element
+    // Navigating a map
+    println(studentScores.keys)    // [Rahul, Priya, Arjun, Sneha]
+    println(studentScores.values)  // [92, 88, 75, 95]
+    println(studentScores.entries) // all key-value pairs
+    println(studentScores.size)    // 4
 
-    // Add all from another list
-    val more = listOf("Cook dinner", "Sleep early")
-    tasks.addAll(more)
+    // Iterating over entries
+    for ((name, score) in studentScores) {
+        println("$name scored $score")
+    }
 
-    // Check contents
-    println(tasks)
-    println(tasks.size)
-
-    // Clear everything
-    tasks.clear()
-    println(tasks.isEmpty())  // true
-
-    // Sorting a mutable list
-    val numbers = mutableListOf(5, 2, 8, 1, 9, 3)
-    numbers.sort()          // sorts IN PLACE: [1, 2, 3, 5, 8, 9]
-    numbers.sortDescending() // [9, 8, 5, 3, 2, 1]
-    numbers.shuffle()       // random order (useful for games)
-    numbers.reverse()       // reverses in place
+    // Iterating using entries
+    studentScores.forEach { (name, score) ->
+        println("${name.uppercase()} → $score")
+    }
 }
