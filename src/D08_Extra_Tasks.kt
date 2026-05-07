@@ -32,8 +32,14 @@ fun main() {
     val list: List<String>? = readlnOrNull()?.split(',')
     val size = list?.size
 //    13. Use let to print the length of a nullable list.
-    
+    list?.let { println("List size: ${it.size}") }
 //    14. Use run to operate on a nullable user object with multiple fields.
+    val user = readlnOrNull()
+    user?.run {
+        println("Name: $name")
+        println("Email: $email")
+        println("Age: $age")
+    }
 //    15. Rewrite an unsafe expression to a fully null-safe one.
 //    16. Show a case where let is better than if (x != null).
 //    17. Show a case where run is cleaner than let.
