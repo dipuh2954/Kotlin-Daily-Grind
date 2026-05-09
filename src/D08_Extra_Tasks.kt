@@ -41,9 +41,28 @@ fun main() {
         println("Age: $age")
     }
 //    15. Rewrite an unsafe expression to a fully null-safe one.
+    val length = name!!.length //Unsafe
+    val length = name?.length ?: 0 // null safe
 //    16. Show a case where let is better than if (x != null).
+    val email: String? = readlnOrNull()
+    email?.let { println("Email: $it") } ?: println("No email provided")
 //    17. Show a case where run is cleaner than let.
+    val user: User? = getUser()
+    user?.run {
+        println("Name: $name")
+        println("Email: $email")
+        println("Age: $age")
+    }
 //    18. What does Elvis operator prevent in Android apps?
+    """It prevents NullPointerException by providing a default value 
+        |when an expression evaluates to null, 
+        |ensuring that the app doesn't crash 
+        |due to unexpected null values.""".trimMargin()
 //    19. Explain why !! is almost always a bad choice.
+    """The !! operator forces a nullable type to be treated as non-nullable, 
+        |which can lead to NullPointerExceptions if the value is actually null. 
+        |It bypasses Kotlin's null safety features, making the code less safe and more prone to crashes.""".trimMargin()
 //    20. Safely access a nullable nested property (user?.profile?.email).
+    val user: User? = getUser()
+    val email = user?.profile?.email
 }
