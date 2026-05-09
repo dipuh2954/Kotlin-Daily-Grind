@@ -1,37 +1,35 @@
 fun main() {
-    // to — infix function that creates a Pair (key to value)
-    val studentScores = mapOf(
-        "Rahul" to 92,
-        "Priya" to 88,
-        "Arjun" to 75,
-        "Sneha" to 95
-    )
+    // Creating an immutable list of strings
+    val fruits = listOf("Apple", "Banana", "Mango", "Kiwi")
 
-    // Accessing values by key
-    println(studentScores["Rahul"])         // 92
-    println(studentScores["Unknown"])       // null (key doesn't exist)
-    println(studentScores.getValue("Priya")) // 88 — throws if key missing
-    println(studentScores.getOrDefault("X", 0)) // 0 if key not found
-    println(studentScores.getOrElse("X") { -1 })  // -1 (lambda default)
+    // Accessing elements by index (starts at 0)
+    println(fruits[0])        // Apple
+    println(fruits[2])        // Mango
+    println(fruits.first())   // Apple  — same as fruits[0]
+    println(fruits.last())    // Kiwi   — last element
 
-    // Checking existence
-    println(studentScores.containsKey("Priya"))   // true
-    println(studentScores.containsValue(100))     // false
-    println("Rahul" in studentScores)             // true (checks keys)
+    // Safe access — returns null instead of crashing
+    println(fruits.getOrNull(10))  // null (no crash!)
+    println(fruits.getOrElse(10) { "Unknown" }) // Unknown
 
-    // Navigating a map
-    println(studentScores.keys)    // [Rahul, Priya, Arjun, Sneha]
-    println(studentScores.values)  // [92, 88, 75, 95]
-    println(studentScores.entries) // all key-value pairs
-    println(studentScores.size)    // 4
+    // Common properties and functions
+    println(fruits.size)           // 4
+    println(fruits.isEmpty())      // false
+    println(fruits.isNotEmpty())   // true
+    println(fruits.contains("Mango"))  // true
+    println("Apple" in fruits)         // true  (same as contains)
 
-    // Iterating over entries
-    for ((name, score) in studentScores) {
-        println("$name scored $score")
+    // Iterating
+    for (fruit in fruits) {
+        println(fruit)
     }
 
-    // Iterating using entries
-    studentScores.forEach { (name, score) ->
-        println("${name.uppercase()} → $score")
+    // With index
+    for ((index, fruit) in fruits.withIndex()) {
+        println("$index → $fruit")
     }
+
+    // THIS WILL NOT COMPILE — immutable!
+    // fruits.add("Orange")   ← compile error
+    // fruits[0] = "Peach"    ← compile error
 }
