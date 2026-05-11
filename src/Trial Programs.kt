@@ -19,9 +19,6 @@ fun main() {
     println(fruits.contains("Mango"))  // true
     println("Apple" in fruits)         // true  (same as contains)
 
-
-    //skhdfide I don't really get it...
-
     // Iterating
     for (fruit in fruits) {
         println(fruit)
