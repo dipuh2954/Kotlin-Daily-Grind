@@ -31,7 +31,20 @@ fun main() {
         println("$word -> $count")
     }
 //Iterate over a student scores map and print only the students who scored above 80.
-    
+    // Iterate over a student scores map and print only the students who scored above 80.
+    val studentScores = mapOf(
+        "Rahul" to 92,
+        "Neha" to 76,
+        "Aman" to 88,
+        "Isha" to 64,
+        "Zara" to 81
+    )
+
+    studentScores.forEach { (name, score) ->
+        if (score > 80) {
+            println("$name -> $score")
+        }
+    }
 //Create a list with many duplicates (names of students who showed up across 3 days — same student might repeat). Use a set to find the total unique students.
 //Create two sets of programming languages your two friends know. Find: (a) languages both know, (b) languages only you know, (c) all languages combined.
 //Build a voting system: receive a list of votes (some people voted twice — invalid). Use a Set to count only unique valid votes.
