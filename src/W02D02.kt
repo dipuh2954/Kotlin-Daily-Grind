@@ -53,7 +53,9 @@ fun main() {
     )
     val uniqueStudents = students.toSet()
     println("Total unique students: ${uniqueStudents.size}")
+
 //Create two sets of programming languages your two friends know. Find: (a) languages both know, (b) languages only you know, (c) all languages combined.
+    
 //Build a voting system: receive a list of votes (some people voted twice — invalid). Use a Set to count only unique valid votes.
 //Given a student list, filter students who scored between 70 and 90 (inclusive).
 //Get a list of just the marks of all students who scored above 60, sorted ascending.
