@@ -55,7 +55,16 @@ fun main() {
     println("Total unique students: ${uniqueStudents.size}")
 
 //Create two sets of programming languages your two friends know. Find: (a) languages both know, (b) languages only you know, (c) all languages combined.
-    
+    val friend1Languages = setOf("Kotlin", "Java", "Python")
+    val friend2Languages = setOf("Kotlin", "JavaScript", "Python")
+
+    val bothKnow = friend1Languages.intersect(friend2Languages)
+    val onlyFriend1Knows = friend1Languages.subtract(friend2Languages)
+    val allLanguages = friend1Languages.union(friend2Languages)
+
+    println("Languages both know: $bothKnow")
+    println("Languages only Friend 1 knows: $onlyFriend1Knows")
+    println("All languages combined: $allLanguages")
 //Build a voting system: receive a list of votes (some people voted twice — invalid). Use a Set to count only unique valid votes.
 //Given a student list, filter students who scored between 70 and 90 (inclusive).
 //Get a list of just the marks of all students who scored above 60, sorted ascending.
