@@ -66,6 +66,9 @@ fun main() {
     println("Languages only Friend 1 knows: $onlyFriend1Knows")
     println("All languages combined: $allLanguages")
 //Build a voting system: receive a list of votes (some people voted twice — invalid). Use a Set to count only unique valid votes.
+    val votes = listOf("Alice", "Bob", "Charlie", "Alice", "David", "Bob")
+    val uniqueVotes = votes.toSet()
+    println("Total valid votes: ${uniqueVotes.size}")
 //Given a student list, filter students who scored between 70 and 90 (inclusive).
 //Get a list of just the marks of all students who scored above 60, sorted ascending.
 //Check: Does any student have a name longer than 6 characters? Do ALL students have marks above 50? Does NONE have marks above 100?
