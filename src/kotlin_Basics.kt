@@ -7,4 +7,10 @@ fun main() {
     val myChar = 'a' // Unicode characters it can be smilie too .... all kind of characters
     val new = '\u00AE'
     println("$myChar $new")
+
+    val name = " Dipu Halder"
+    println(name.uppercase()) // uppercase is a function that converts the string to uppercase
+    println(name.lowercase())
+    
+
 }
